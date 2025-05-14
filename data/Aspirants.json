@@ -62,7 +62,8 @@
     {
         "studentID": "SAC3/1588/2023",
         "name": "Leonora Nduta Mbugua",
-        "position": "Corporates-affairs-secretary"
+        "position": "Corporates-affairs-secretary",
+        "image": "leonaraNduta.jpg"
     },
     {
         "studentID": "IO7/1542/2022",
@@ -79,7 +80,8 @@
     {
         "studentID": "IO7/1562/2022",
         "name": "Lynn Waruguru Mwangi",
-        "position": "ASSK-representative"
+        "position": "ASSK-representative",
+        "image": "lynnWaruguru.jpg"
     },
     {
         "studentID": "IO7/1565/2022",
