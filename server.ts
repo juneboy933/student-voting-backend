@@ -5,6 +5,8 @@ import { voteHandler } from "./routes/vote.ts";
 import { isWithinVotingPeriod, serveStaticImage } from "./utils/fileHelper.ts";
 import { serve } from "./deps.ts";
 
+import { withCors } from "./utils/fileHelper.ts";
+
 const cors = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -18,63 +20,48 @@ async function handler(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: cors });
   }
-
-  // Serve static images
   if (url.pathname.startsWith("/images")) {
-    return serveStaticImage(req, url.pathname);
+    return withCors(await serveStaticImage(req, url.pathname));
   }
 
-  // Login
   if (url.pathname === "/login" && req.method === "POST") {
     const response = await loginHandler(req);
-    return new Response(response.body, {
+    return withCors(new Response(response.body, {
       status: response.status,
-      headers: cors,
-    });
+      headers: { "Content-Type": "application/json" },
+    }));
   }
 
-  // Get aspirants by position
   if (url.pathname.startsWith("/aspirants/") && req.method === "GET") {
-    return await aspirantPositionHandler(req);
+    return withCors(await aspirantPositionHandler(req));
   }
 
-  // Get all aspirants
   if (url.pathname === "/aspirants" && req.method === "GET") {
-    return await allAspirantsHandler(req);
+    return withCors(await allAspirantsHandler(req));
   }
 
-  // Vote submission
   if (url.pathname === "/vote" && req.method === "POST") {
     if (!isWithinVotingPeriod()) {
-      return new Response(
-        JSON.stringify({ message: "Voting is closed." }),
-        {
-          status: 403,
-          headers: { "content-type": "application/json" },
-        }
-      );
+      return withCors(new Response(JSON.stringify({ message: "Voting is closed." }), {
+        status: 403,
+        headers: { "Content-Type": "application/json" },
+      }));
     }
-    return await voteHandler(req);
+    return withCors(await voteHandler(req));
   }
 
-  // Tally per aspirant
   if (url.pathname.startsWith("/tally/") && req.method === "GET") {
-    return await voteTallyPerAspirantHandler(req);
+    return withCors(await voteTallyPerAspirantHandler(req));
   }
 
-  // Tally for all
   if (url.pathname === "/tally" && req.method === "GET") {
-    return await votesHandler(req);
+    return withCors(await votesHandler(req));
   }
 
-  // Not found
-  return new Response(
-    JSON.stringify({ message: "Not Found" }),
-    {
-      status: 404,
-      headers: { "content-type": "application/json" },
-    }
-  );
+  return withCors(new Response(JSON.stringify({ message: "Not Found" }), {
+    status: 404,
+    headers: { "Content-Type": "application/json" },
+  }));
 }
 
 serve(handler);
