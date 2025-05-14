@@ -4,6 +4,8 @@ import { votesHandler } from "./routes/voteTally.ts";
 import { voteTallyPerAspirantHandler } from "./routes/voteTally.ts";
 import { voteHandler } from "./routes/vote.ts";
 import { isWithinVotingPeriod, serveStaticImage } from "./utils/fileHelper.ts";
+import { serve } from "./deps.ts";
+
 // import { voteResultHandler } from "./routes/voteTally.ts";
 
 
@@ -71,4 +73,5 @@ async function server(req: Request){
         headers: {"content-type": "application/json"}
     })
 }
-Deno.serve(server);
+// Deno.serve(server);
+serve(server);
