@@ -3,7 +3,7 @@ import { loginHandler } from "./routes/login.ts";
 import { votesHandler } from "./routes/voteTally.ts";
 import { voteTallyPerAspirantHandler } from "./routes/voteTally.ts";
 import { voteHandler } from "./routes/vote.ts";
-import { serveStaticImage } from "./utils/fileHelper.ts";
+import { isWithinVotingPeriod, serveStaticImage } from "./utils/fileHelper.ts";
 // import { voteResultHandler } from "./routes/voteTally.ts";
 
 
@@ -47,6 +47,12 @@ async function server(req: Request){
     
     // Voting and checking the voting  if its successful
     if(url.pathname === '/vote' && req.method === 'POST'){
+        if(!isWithinVotingPeriod()) {
+            return new Response(JSON.stringify({ message: "Voting is closed."}), {
+                status: 403,
+                headers: {"content-type": "application/json"},
+            });
+        }
         return await voteHandler(req);
     }
 

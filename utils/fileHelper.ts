@@ -35,3 +35,18 @@ export function corsHeaders(){
         "Access-Control-Allow-Allow-Headers": "Content-Type",
     }
 }
+
+export function isWithinVotingPeriod(): boolean {
+    const now = new Date();
+
+    // Get todays's date
+    const year = now.getFullYear();
+    const month = now.getMonth(); 
+    const date = now.getDate();
+
+    // Set start and end time for today
+    const votingStart = new Date(year, month, date, 8, 0, 0); // 8.00Am
+    const votingEnd = new Date(year, month, date, 16,0,0); // 4.00PM
+
+    return now >= votingStart && now <= votingEnd;
+}
