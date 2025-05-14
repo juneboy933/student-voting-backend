@@ -1,0 +1,107 @@
+[
+    {
+        "studentID": "SAC3/1615/2023",
+        "name": "Dambire Edgar Wanyama",
+        "position": "Chairperson",
+        "image": "edgarNdambire.jpg"
+    },
+    {
+        "studentID": "IO7/5486/2022",
+        "name": "Emojong Austine",
+        "position": "Chairperson",
+        "image": "emojongAustine.jpg"
+    },
+    {
+        "studentID": "IO7/1555/2022",
+        "name": "Washington Morey Oburu",
+        "position": "Chairperson",
+        "image": "washingtonMorey.jpg"
+    },
+    {
+        "studentID": "IO7/1576/2022",
+        "name": "Lisa Muthoni Wangui",
+        "position": "Vice-chairperson",
+        "image": "lisaMuthoni.jpg"
+    },
+    {
+        "studentID": "SAC3/7078/2023",
+        "name": "Alwali Brian Juma",
+        "position": "Vice-chairperson",
+        "image": "brianAlwali.jpg"
+    },
+    {
+        "studentID": "SAC3/1809/2023",
+        "name": "Brian Gatu Nderitu",
+        "position": "Secretary-general",
+        "image": "gatuBrian.jpg"
+    },
+    {
+        "studentID": "SAC3/1594/2023",
+        "name": "Frank Mumo",
+        "position": "Secretary-general",
+        "image": "frankMumo.jpg"
+    },
+    {
+        "studentID": "IO7/1541/2022",
+        "name": "Kelvin Maina Ndirangu",
+        "position": "Secretary-general",
+        "image": "kelvinMaina.jpg"
+    },
+    {
+        "studentID": "SAC3/1619/2024",
+        "name": "Melchizedeck Sangura",
+        "position": "Finance-secretary",
+        "image": "melchizedeckSangura.jpg"
+    },
+    {
+        "studentID": "IO7/1577/2022",
+        "name": "Mwangi Alba Wangechi",
+        "position": "Finance-secretary",
+        "image": "albaMwangi.jpg"
+    },
+    {
+        "studentID": "SAC3/1588/2023",
+        "name": "Leonora Nduta Mbugua",
+        "position": "Corporates-affairs-secretary"
+    },
+    {
+        "studentID": "IO7/1542/2022",
+        "name": "Mutuku Brian Mumo",
+        "position": "Publicity-secretary",
+        "image": "mumoMutuku.jpg"
+    },
+    {
+        "studentID": "SAC3/1603/2023",
+        "name": "Samuel Baraka Barasa",
+        "position": "Publicity-secretary",
+        "image": "samuelBaraka.jpg"
+    },
+    {
+        "studentID": "IO7/1562/2022",
+        "name": "Lynn Waruguru Mwangi",
+        "position": "ASSK-representative"
+    },
+    {
+        "studentID": "IO7/1565/2022",
+        "name": "Mwangi Filex",
+        "position": "4th-year-representative",
+        "image": "seacerFilexMwangi.jpg"
+    },
+    {
+        "studentID": "SAC3/1615/2023",
+        "name": "Kimutai Meshack Kiplimo",
+        "position": "3rd-year-representative",
+        "image": "kimutaiMeshack.jpg"
+    },
+    {
+        "studentID": "SAC3/1617/2024",
+        "name": "Terry Kaziga",
+        "position": "2nd-year-representative",
+        "image": "kazigaTerry.jpg"
+    },
+    {
+        "studentID": "SAC3/148618/2024",
+        "name": "Clinton",
+        "position": "2nd-year-representative"
+    }
+]

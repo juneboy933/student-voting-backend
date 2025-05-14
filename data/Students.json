@@ -1,0 +1,77 @@
+[
+  {
+    "studentID": "SAC3/8416/2024",
+    "has_voted": {
+      "Chairperson": false,
+      "Vice-chairperson": false,
+      "Secretary-general": false,
+      "Finance-secretary": false,
+      "Corporates-affairs-secretary": false,
+      "Publicity-secretary": false,
+      "ASSK-representative": false,
+      "4th-year-representative": false,
+      "3rd-year-representative": false,
+      "2nd-year-representative": false
+    }
+  },
+  {
+    "studentID": "SAC3/1593/2024",
+    "has_voted": {
+      "Chairperson": false,
+      "Vice-chairperson": false,
+      "Secretary-general": false,
+      "Finance-secretary": false,
+      "Corporates-affairs-secretary": false,
+      "Publicity-secretary": false,
+      "ASSK-representative": false,
+      "4th-year-representative": false,
+      "3rd-year-representative": false,
+      "2nd-year-representative": false
+    }
+  },
+  {
+    "studentID": "SAC3/8441/2024",
+    "has_voted": {
+      "Chairperson": false,
+      "Vice-chairperson": false,
+      "Secretary-general": false,
+      "Finance-secretary": false,
+      "Corporates-affairs-secretary": false,
+      "Publicity-secretary": false,
+      "ASSK-representative": false,
+      "4th-year-representative": false,
+      "3rd-year-representative": false,
+      "2nd-year-representative": false
+    }
+  },
+  {
+    "studentID": "SAC3/1623/2024",
+    "has_voted": {
+      "Chairperson": false,
+      "Vice-chairperson": false,
+      "Secretary-general": false,
+      "Finance-secretary": false,
+      "Corporates-affairs-secretary": false,
+      "Publicity-secretary": false,
+      "ASSK-representative": false,
+      "4th-year-representative": false,
+      "3rd-year-representative": false,
+      "2nd-year-representative": false
+    }
+  },
+  {
+    "studentID": "SAC3/1596/2024",
+    "has_voted": {
+      "Chairperson": false,
+      "Vice-chairperson": false,
+      "Secretary-general": false,
+      "Finance-secretary": false,
+      "Corporates-affairs-secretary": false,
+      "Publicity-secretary": false,
+      "ASSK-representative": false,
+      "4th-year-representative": false,
+      "3rd-year-representative": false,
+      "2nd-year-representative": false
+    }
+  }
+]
