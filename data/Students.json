@@ -2612,7 +2612,7 @@
   {
     "studentID": "I07/1637/2021",
     "has_voted": {
-      "Chairperson": false,
+      "Chairperson": true,
       "Vice-chairperson": false,
       "Secretary-general": false,
       "Finance-secretary": false,
