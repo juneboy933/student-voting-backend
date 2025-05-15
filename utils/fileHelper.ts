@@ -1,8 +1,7 @@
 import { extname, join, contentType } from "../deps.ts";
 
 const IMAGES_DIR = "./images";
-const STUDENTS_JSON_TMP = "/tmp/Students.json";
-const STUDENTS_JSON_READONLY = "data/Students.json";
+const STUDENTS_JSON_PATH = "data/Students.json"; // Use the correct path for reading and writing
 
 // Serve static image file
 export async function serveStaticImage(_req: Request, pathname: string) {
@@ -25,38 +24,39 @@ export async function serveStaticImage(_req: Request, pathname: string) {
     }
 }
 
-// Read JSON file with fallback
+// Read JSON file
 export async function readJSON(path: string) {
     try {
         const data = await Deno.readTextFile(path);
         return JSON.parse(data);
     } catch (error) {
-        if (path === STUDENTS_JSON_TMP) {
-            // fallback to read-only version
-            console.warn(`Falling back to read-only Students.json: ${STUDENTS_JSON_READONLY}`);
-            const data = await Deno.readTextFile(STUDENTS_JSON_READONLY);
-            return JSON.parse(data);
-        } else {
-            throw error;
-        }
+        console.error(`Error reading file from ${path}:`, error);
+        throw error;
     }
 }
 
-// Write JSON to writable path only
-export async function writeJSON(_path: string, data: unknown) {
-    const json = JSON.stringify(data, null, 2);
-    await Deno.writeTextFile(STUDENTS_JSON_TMP, json);
+// Write JSON to the specified path
+export async function writeJSON(path: string, data: unknown) {
+    try {
+        const json = JSON.stringify(data, null, 2);
+        await Deno.writeTextFile(path, json);
+    } catch (error) {
+        console.error(`Error writing JSON to ${path}:`, error);
+        throw error;
+    }
 }
 
+// Return CORS headers
 export function corsHeaders() {
     return {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
-        "Access-Control-Allow-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Headers": "Content-Type",
     };
 }
 
+// Check if current time is within the allowed voting period
 export function isWithinVotingPeriod(): boolean {
     const nowUTC = new Date();
 
