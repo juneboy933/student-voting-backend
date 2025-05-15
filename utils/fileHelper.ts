@@ -37,19 +37,22 @@ export function corsHeaders(){
 }
 
 export function isWithinVotingPeriod(): boolean {
-    const now = new Date();
+    const nowUTC = new Date();
 
-    // Get todays's date
-    const year = now.getFullYear();
-    const month = now.getMonth(); 
-    const date = now.getDate();
+    // Convert to EAT (UTC+3)
+    const eatOffsetMs = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
+    const nowEAT = new Date(nowUTC.getTime() + eatOffsetMs);
 
-    // Set start and end time for today
-    const votingStart = new Date(year, month, date, 8, 0, 0); // 8.00Am
-    const votingEnd = new Date(year, month, date, 16,0,0); // 4.00PM
+    const year = nowEAT.getUTCFullYear();
+    const month = nowEAT.getUTCMonth(); 
+    const date = nowEAT.getUTCDate();
 
-    return now >= votingStart && now <= votingEnd;
+    const votingStartEAT = new Date(Date.UTC(year, month, date, 5, 0, 0)); // 8AM EAT = 5AM UTC
+    const votingEndEAT = new Date(Date.UTC(year, month, date, 13, 0, 0));  // 4PM EAT = 1PM UTC
+
+    return nowUTC >= votingStartEAT && nowUTC <= votingEndEAT;
 }
+
 
 // helper 
 export function withCors(res: Response): Response {
