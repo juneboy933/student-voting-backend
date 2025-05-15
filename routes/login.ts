@@ -20,7 +20,7 @@ export async function loginHandler(req: Request) {
                 headers: {"content-type": "application/json"}
             })
         }
-        const students = await readJSON('data/students.json');
+        const students = await readJSON('data/Students.json');
         // deno-lint-ignore no-explicit-any
         const student = students.find((s: any) => s["studentID"] === studentID);
         if(!student){
